@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { counterReset, decrement, increment } from "../features/counter/counterSlice";
+import { counterReset } from "../features/counter/counterSlice";
 import type { AppDispatch, RootState } from "../store";
 import ColorPicker from "./colorPicker";
 import { colorReset } from "../features/color/colorSlice";
@@ -34,6 +34,7 @@ function ColorCounter() {
             })
             .catch((e) => {
                 if (!cancelled) {
+                    console.error(e);
                     throw new Error("Having issues with the API!");
                 }
             });
